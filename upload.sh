@@ -34,7 +34,7 @@ create_container(){
 # Get Storage Account Keys
 storage_account_keys(){
     accountKey=$(az storage account keys list --resource-group $resourceGroup --account-name $storageAccount --query "[0].value" -o tsv)
-    # echo $accountKey
+    echo "Storage Account Key is: $accountKey"
 }
 
 # Check storage account
@@ -80,21 +80,8 @@ print_out_regions() {
 
 # Select a region
 check_region() {
-    local region_exists=false
-    while [[ "$region_exists" = false ]];  do
-        print_out_regions
-        read -p "Enter your region: " selected_region
-        for j in "${regions_array[@]}"
-        do
-            if [[ "$selected_region" == "$j" ]]; then
-                region_exists=true
-                echo "Region exists"
-                break
-            else
-                continue
-            fi
-        done
-    done
+    print_out_regions
+    read -p "Enter your region: " selected_region
 }
 
 # Create the resource group
@@ -122,7 +109,7 @@ list_resource_groups() {
 }
 
 
+echo "Welcome to Cloud Uploader"
 
-
-setup
+# setup
 upload_file
