@@ -33,7 +33,7 @@ create_container(){
 
 # Get Storage Account Keys
 storage_account_keys(){
-    accountKey=$(az storage account keys list --resource-group $resourceGroup --account-name $storageAccount --query "[0].value" -o tsv)
+    export accountKey=$(az storage account keys list --resource-group $resourceGroup --account-name $storageAccount --query "[0].value" -o tsv)
     echo "Storage Account Key is: $accountKey"
 }
 
