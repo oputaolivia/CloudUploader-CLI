@@ -111,5 +111,5 @@ list_resource_groups() {
 
 echo "Welcome to Cloud Uploader"
 
-# setup
+setup
 upload_file
